@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuOrdenarValor"
+        android:title="Valor"
+        android:icon="@drawable/ic_valor"
+        />
+
+    <item
+        android:id="@+id/menuOrdenarNome"
+        android:title="Nome"
+        android:icon="@drawable/ic_nome"
+        />
+
+    <item
+        android:id="@+id/menuFechar"
+        android:title="Fechar"
+        android:icon="@drawable/ic_fechar"
+        />
+</menu>

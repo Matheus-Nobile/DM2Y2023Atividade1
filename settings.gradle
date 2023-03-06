@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        google()
+        maven { url 'https://maven.google.com' }
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "DM2Y2023Atividade1"
+include ':app'
