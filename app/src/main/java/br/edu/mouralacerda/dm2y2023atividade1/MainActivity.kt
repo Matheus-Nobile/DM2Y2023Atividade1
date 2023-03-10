@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         atualizarLista()
-        
+
         b.lstProduto.setOnItemLongClickListener { adapterView, view, i, l ->
             val c : Produto = adapterView.adapter.getItem(i) as Produto
             val builder = AlertDialog.Builder(this)
@@ -48,10 +48,8 @@ class MainActivity : AppCompatActivity() {
                 .setMessage("Deseja realmente apagar o produto selecionado?")
                 .setPositiveButton("Sim") { dialog, which ->
                     CoroutineScope(Dispatchers.IO).launch {
-                        //Executa pararelo à UI thread
                         ProdutoDatabase.getInstance(this@MainActivity).produtoDao().deleteProduto(c)
                         withContext(Dispatchers.Main){
-                            //Executa na UI thread
                             atualizarLista()
                         }
                     }
@@ -126,11 +124,9 @@ class MainActivity : AppCompatActivity() {
         var produtos: List<Produto>
 
         CoroutineScope(Dispatchers.IO).launch {
-            //Executa pararelo à UI thread
             produtos = ProdutoDatabase.getInstance(this@MainActivity).produtoDao().listar()
 
             withContext(Dispatchers.Main){
-                //Executa na UI thread
                 b.lstProduto.adapter = ArrayAdapter(
                     this@MainActivity,
                     android.R.layout.simple_list_item_1,

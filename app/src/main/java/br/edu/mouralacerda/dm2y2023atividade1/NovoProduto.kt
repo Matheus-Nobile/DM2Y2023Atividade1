@@ -24,10 +24,8 @@ class NovoProduto : AppCompatActivity() {
                 b.edtValor.text.toString().toDouble()
             )
             CoroutineScope(Dispatchers.IO).launch {
-                //Executa pararelo à UI thread
                 ProdutoDatabase.getInstance(this@NovoProduto).produtoDao().salvar(produto)
                 withContext(Dispatchers.Main){
-                    //Executa na UI thread
                     finish()
                 }
             }
